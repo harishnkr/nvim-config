@@ -1,4 +1,4 @@
-# NeoVim Config
+# Nvim Config
 
 
-My personal Nvim Configuration
+My personal NeoVim Configuration
