@@ -1,4 +1,3 @@
-
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -14,17 +13,10 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 vim.opt.rtp:prepend(lazypath)
-require('lazy').setup({
-  require 'plugins.alpha' ,
-  require 'plugins.formatplugins' ,
-  require 'plugins.keybinds' ,
-  require 'plugins.lsp' ,
-  require 'plugins.gitplugins' ,
-  require 'plugins.colorscheme' ,
-  require 'plugins.statusline' ,
-  require 'plugins.telescope' ,
-  require 'plugins.treesitter' ,
-  require 'plugins.filetree' ,
-  -- require 'plugins.debug',
-}, {})
+
+require('lazy').setup('plugins')
+
+require ("pluginoptions.telescope")
+--require ("pluginoptions.treesitter")
+require ("pluginoptions.lsp")
 

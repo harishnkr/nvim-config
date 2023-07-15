@@ -1,6 +1,8 @@
 
--- [[ Setting options ]]
--- See `:help vim.o`
+-- Lazy requires setting leader key way before anything loads up
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -41,14 +43,4 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
-})
 

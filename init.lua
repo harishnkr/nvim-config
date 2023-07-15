@@ -1,15 +1,13 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+require("config.options")
+require("config.lazy")
 
-require ("lazyplugins")
-require ("options")
-require ("mappings")
+vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    callback = function()
+        require("config.autocmds")
+        require("config.keymaps")
+    end,
+})
 
 
-require ("pluginoptions.filetree")
-require ("pluginoptions.telescope")
-require ("pluginoptions.treesitter")
-require ("pluginoptions.lsp")
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
-
+require("plugins.lsp.lspsettings")
