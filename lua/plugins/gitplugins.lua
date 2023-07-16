@@ -18,12 +18,12 @@ return { -- Git related plugins
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns
 
-        local function map(mode, l, r, desc)
-          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+        local function nmap( l, r, desc)
+          vim.keymap.set('n', l, r, { buffer = buffer, desc = desc })
         end
-        map("n", "]h", gs.next_hunk, "Next Hunk")
-        map("n", "[h", gs.prev_hunk, "Prev Hunk")
-        map("n", "<leader>gp", gs.preview_hunk, "Preview Hunk")
+        nmap( "]h", gs.next_hunk, "Next Hunk")
+        nmap( "[h", gs.prev_hunk, "Prev Hunk")
+        nmap( "<leader>gp", gs.preview_hunk, "Preview Hunk")
       end,
     },
   }

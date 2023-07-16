@@ -5,17 +5,6 @@ return {
     branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
 
-    opts = {
-      defaults = {
-        mappings = {
-          i = {
-            ['<C-u>'] = false,
-            ['<C-d>'] = false,
-          },
-        },
-      },
-    },
-
     config = function(_, opts)
       -- Enable telescope fzf native, if installed
       local telescope = require("telescope")
