@@ -17,7 +17,6 @@ return {
       vim.keymap.set('n', '<leader><space>', b.buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>/',
         function()
-          -- You can pass additional configuration to telescope to change theme, layout, etc.
           b.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })
         end,
         { desc = '[/] Fuzzily search in current buffer' })
@@ -26,6 +25,7 @@ return {
       vim.keymap.set('n', '<leader>sw', b.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', b.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', b.diagnostics, { desc = '[S]earch [D]iagnostics' })
+      vim.keymap.set('n', '<leader>sk', b.keymaps, { desc = '[S]earch [K]eymaps' })
     end,
 
 
