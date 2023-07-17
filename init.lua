@@ -9,5 +9,4 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
-
-require("plugins.lsp.lspsettings")
+-- require("config.ts")

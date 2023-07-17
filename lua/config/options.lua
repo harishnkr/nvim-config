@@ -43,4 +43,5 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 
-
+-- Highlight cursorline
+vim.o.cursorline = true
