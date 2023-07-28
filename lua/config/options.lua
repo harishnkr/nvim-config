@@ -1,7 +1,7 @@
 
 -- Lazy requires setting leader key way before anything loads up
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = '\\'
 
 
 -- Set highlight on search
