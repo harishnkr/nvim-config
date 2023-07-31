@@ -1,5 +1,5 @@
 -- Unless you are still migrating, remove the deprecated commands from v1.x
-return {{
+return {
   "nvim-neo-tree/neo-tree.nvim",
   cmd = "Neotree",
   dependencies = {
@@ -8,8 +8,15 @@ return {{
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    {"<leader>n","<cmd>Neotree toggle<cr>",desc = "Toggle Neotree"},
+    {"<leader>n","<cmd>NeoTreeFocusToggle<cr>",desc ="Neotree"}
   },
-
-
-},}
+  opts = {
+    toggle = true,
+    filesystem = {
+      follow_current_file = true,
+      filtered_items = {
+        hide_dotfiles = false,
+      }
+    }
+  }
+}
