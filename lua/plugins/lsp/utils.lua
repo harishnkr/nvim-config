@@ -6,13 +6,15 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 
-function M.setup(_,bufnr)
-	-- NOTE: Remember that lua is a real programming language, and as such it is possible
-	-- to define small helper and utility functions so you don't have to repeat yourself
-	-- many times.
-	--
-	-- In this case, we create a function that lets us more easily define mappings specific
-	-- for LSP related items. It sets the mode, buffer and description for us each time.
+function M.setup(_, bufnr)
+	local imap = function(keys, func, desc)
+		if desc then
+			desc = 'LSP: ' .. desc
+		end
+
+		vim.keymap.set('i', keys, func, { buffer = bufnr, desc = desc })
+	end
+
 	local nmap = function(keys, func, desc)
 		if desc then
 			desc = 'LSP: ' .. desc
@@ -36,6 +38,7 @@ function M.setup(_,bufnr)
 	-- See `:help K` for why this keymap
 	nmap('K', lb.hover, 'Hover Documentation')
 	nmap('<C-k>', lb.signature_help, 'Signature Documentation')
+	imap('<C-k>', lb.signature_help, 'Signature Documentation')
 
 	-- Lesser used LSP functionality
 	nmap('gD', lb.declaration, '[G]oto [D]eclaration')
@@ -54,7 +57,7 @@ end
 
 -- Create a command `:Format` local to the LSP buffer
 function M.format()
-local bufnr = vim.api.nvim_get_current_buf()
+	local bufnr = vim.api.nvim_get_current_buf()
 	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
 		vim.lsp.buf.format()
 	end, { desc = 'Format current buffer with LSP' })
