@@ -67,7 +67,7 @@ M.servers = {
 	clangd = {},
 	-- ccls
 	-- gopls = {},
-	pyright = {},
+	-- pyright = {},
 	-- rust_analyzer = {},
 	-- tsserver = {},
 
