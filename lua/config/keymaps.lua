@@ -15,3 +15,6 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
+-- Switch between buffers
+vim.keymap.set('n', '<Tab>', vim.cmd.bn, { noremap = true, silent = true })
+vim.keymap.set('n', '<S-Tab>', vim.cmd.bp, { noremap = true, silent = true })
