@@ -75,6 +75,10 @@ M.servers = {
 		Lua = {
 			workspace = { checkThirdParty = false },
 			telemetry = { enable = false },
+			diagnostics = {
+				-- AwesomeWM variables
+				globals = { "awesome", "root", "client" }
+			},
 		},
 	},
 }
