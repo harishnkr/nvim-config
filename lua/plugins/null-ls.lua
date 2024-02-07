@@ -1,5 +1,6 @@
 return {
   "jose-elias-alvarez/null-ls.nvim",
+  enabled = false,
   ft = { "python" },
   event = { "BufReadPre", "BufNewFile" },
   dependencies = { "mason.nvim" },

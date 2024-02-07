@@ -64,13 +64,25 @@ function M.format()
 end
 
 M.servers = {
-	clangd = {},
 	-- ccls
 	-- gopls = {},
 	-- pyright = {},
+	-- clangd = {
+	-- 	cmd = { "clangd", "--compile-commands-dir=~/.config/nvim/lua/plugins/lsp/compile_commands" },
+	-- 	filetypes = { "c", "cpp", "objc", "objcpp" },
+	-- 	root_dir = vim.fn.getcwd(),
+	-- 			init_options = {
+	-- 		compilationDatabaseDirectory = "~/.config/nvim/lua/plugins/lsp/compile_commands",
+	-- 		useDefaultFallback = true,
+	-- 	},
+	-- 	settings = {
+	-- 		-- Add any specific clangd settings here if needed
+	-- 		-- For example:
+	-- 		-- ["clangd"] = { someSetting = value }
+	-- 	},
+	-- },
 	-- rust_analyzer = {},
 	-- tsserver = {},
-
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },

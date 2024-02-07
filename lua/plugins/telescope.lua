@@ -13,9 +13,9 @@ return {
       telescope.load_extension("fzf")
       local b = require('telescope.builtin')
       -- See `:help telescope.builtin`
-      vim.keymap.set('n', '<leader>?', b.oldfiles, { desc = '[?] Find recently opened files' })
+      vim.keymap.set('n', '<leader>/', b.oldfiles, { desc = '[?] Find recently opened files' })
       vim.keymap.set('n', '<leader><space>', b.buffers, { desc = '[ ] Find existing buffers' })
-      vim.keymap.set('n', '<leader>/',
+      vim.keymap.set('n', '<leader>?',
         function()
           b.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown { winblend = 10, previewer = false, })
         end,

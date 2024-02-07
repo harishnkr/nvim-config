@@ -18,3 +18,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagn
 -- Switch between buffers
 vim.keymap.set('n', '<Tab>', vim.cmd.bn, { noremap = true, silent = true })
 vim.keymap.set('n', '<S-Tab>', vim.cmd.bp, { noremap = true, silent = true })
+
+
+-- control a select all
+vim.keymap.set('n', '<C-a>', 'ggVG', { silent = true })
+
