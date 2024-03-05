@@ -10,12 +10,10 @@ return {
     ensure_installed = {
       'c',
       'cpp',
-      'go',
       'lua',
+      'markdown',
+      'markdown_inline',
       'python',
-      'rust',
-      'tsx',
-      'typescript',
       'vim'
     },
 

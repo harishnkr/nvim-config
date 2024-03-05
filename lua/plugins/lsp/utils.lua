@@ -62,7 +62,10 @@ function M.format()
 		vim.lsp.buf.format()
 	end, { desc = 'Format current buffer with LSP' })
 end
-
+local words = {}
+for word in io.open(vim.fn.stdpath("config") .. "/dictionary", "r"):lines() do
+	table.insert(words, word)
+end
 M.servers = {
 	-- ccls
 	-- gopls = {},
@@ -83,13 +86,22 @@ M.servers = {
 	-- },
 	-- rust_analyzer = {},
 	-- tsserver = {},
+	ltex = {
+		ltex = {
+			enabled = { "bibtex", "context", "context.tex", "latex", "markdown", "org", "restructuredtext", "rsweave" },
+			language = "en-GB",
+			dictionary = {
+				["en-GB"] = words,
+			},
+		}
+	},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
 			telemetry = { enable = false },
 			diagnostics = {
 				-- AwesomeWM variables
-				globals = { "awesome", "root", "client" }
+				globals = { "awesome", "root", "client", "pandoc" }
 			},
 		},
 	},
