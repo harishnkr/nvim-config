@@ -45,3 +45,13 @@ vim.o.termguicolors = true
 
 -- Highlight cursorline
 vim.o.cursorline = true
+
+-- netrw options
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 20
+vim.g.netrw_keepdir = 0
+vim.g.netrw_use_errorwindow = 0
+
+
+-- fold options
+vim.o.foldmethod = "marker"

@@ -1,6 +1,7 @@
 -- Unless you are still migrating, remove the deprecated commands from v1.x
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  enabled = false,
   cmd = "Neotree",
   dependencies = {
     "nvim-lua/plenary.nvim",
