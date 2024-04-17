@@ -21,7 +21,7 @@ vim.keymap.set('n', '<S-Tab>', vim.cmd.bp, { noremap = true, silent = true })
 
 
 -- control a select all
-vim.keymap.set('n', '<C-a>', 'ggVG', { silent = true })
+vim.keymap.set('n', '<M-a>', 'ggVG', { silent = true })
 
 -- netrw keymaps
 vim.keymap.set('n', '<leader>n', '<cmd>Lex<cr>', { noremap = true, silent = true,  desc = "Toggle Netrw"  })
