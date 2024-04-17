@@ -53,3 +53,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.cmd [[
+  augroup base
+  au!
+
+  " file name
+  au BufEnter sxhkdrc,*.sxhkdrc set ft=sxhkdrc
+
+  " comment strings
+  au FileType sxhkdrc setlocal commentstring=#%s
+
+  augroup base
+]]
