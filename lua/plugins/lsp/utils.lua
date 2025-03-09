@@ -86,15 +86,15 @@ M.servers = {
 	-- },
 	-- rust_analyzer = {},
 	-- tsserver = {},
-	ltex = {
-		ltex = {
-			enabled = { "bibtex", "context", "context.tex", "latex", "markdown", "org", "restructuredtext", "rsweave" },
-			language = "en-GB",
-			dictionary = {
-				["en-GB"] = words,
-			},
-		}
-	},
+	-- ltex = {
+	-- 	ltex = {
+	-- 		enabled = { "bibtex", "context", "context.tex", "latex", "markdown", "org", "restructuredtext", "rsweave" },
+	-- 		language = "en-GB",
+	-- 		dictionary = {
+	-- 			["en-GB"] = words,
+	-- 		},
+	-- 	}
+	-- },
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
