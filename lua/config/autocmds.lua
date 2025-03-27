@@ -59,6 +59,7 @@ vim.cmd [[
 
   " file name
   au BufEnter sxhkdrc,*.sxhkdrc set ft=sxhkdrc
+  au BufEnter lfrc set ft=conf
 
   " comment strings
   au FileType sxhkdrc setlocal commentstring=#%s
