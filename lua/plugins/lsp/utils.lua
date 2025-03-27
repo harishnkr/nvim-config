@@ -62,6 +62,7 @@ function M.format()
 		vim.lsp.buf.format()
 	end, { desc = 'Format current buffer with LSP' })
 end
+
 local words = {}
 for word in io.open(vim.fn.stdpath("config") .. "/dictionary", "r"):lines() do
 	table.insert(words, word)
@@ -86,15 +87,15 @@ M.servers = {
 	-- },
 	-- rust_analyzer = {},
 	-- tsserver = {},
-	-- ltex = {
-	-- 	ltex = {
-	-- 		enabled = { "bibtex", "context", "context.tex", "latex", "markdown", "org", "restructuredtext", "rsweave" },
-	-- 		language = "en-GB",
-	-- 		dictionary = {
-	-- 			["en-GB"] = words,
-	-- 		},
-	-- 	}
-	-- },
+	ltex = {
+		ltex = {
+			enabled = { "bibtex", "context", "context.tex", "latex", "org", "restructuredtext", "rsweave" },
+			language = "en-GB",
+			dictionary = {
+				["en-GB"] = words,
+			},
+		}
+	},
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = false },
