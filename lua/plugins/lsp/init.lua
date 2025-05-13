@@ -40,15 +40,15 @@ return { -- LSP Configuration & Plugins
 			ensure_installed = vim.tbl_keys(servers),
 		}
 
-		mason_lspconfig.setup_handlers {
-			function(server_name)
-				lspconfig[server_name].setup {
-					capabilities = lsputils.capabilities,
-					on_attach = lsputils.on_attach,
-					settings = servers[server_name],
-				}
-			end,
-		}
+		-- mason_lspconfig.setup_handlers {
+		-- 	function(server_name)
+		-- 		lspconfig[server_name].setup {
+		-- 			capabilities = lsputils.capabilities,
+		-- 			on_attach = lsputils.on_attach,
+		-- 			settings = servers[server_name],
+		-- 		}
+		-- 	end,
+		-- }
 	end,
 
 }
