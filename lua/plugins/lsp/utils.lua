@@ -1,9 +1,6 @@
 local M = {}
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-M.capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+M.capabilities = require("blink.cmp").get_lsp_capabilities()
 
 
 function M.setup(_, bufnr)
@@ -32,7 +29,7 @@ function M.setup(_, bufnr)
 	nmap('gr', tb.lsp_references, '[G]oto [R]eferences')
 	nmap('gI', lb.implementation, '[G]oto [I]mplementation')
 	nmap('<leader>D', lb.type_definition, 'Type [D]efinition')
-	nmap('<leader>ds', tb.lsp_document_symbols, '[D]ocument [S]ymbols')
+	nmap('<leader>ss', tb.lsp_document_symbols, '[S]earch [S]ymbols')
 	nmap('<leader>ws', tb.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
 	-- See `:help K` for why this keymap
@@ -63,14 +60,26 @@ function M.format()
 	end, { desc = 'Format current buffer with LSP' })
 end
 
+local dict_file = io.open(vim.fn.stdpath("config") .. "/dictionary", "r")
 local words = {}
-for word in io.open(vim.fn.stdpath("config") .. "/dictionary", "r"):lines() do
-	table.insert(words, word)
+if dict_file then
+    for word in dict_file:lines() do
+        table.insert(words, word)
+    end
+    dict_file:close()
 end
 M.servers = {
 	-- ccls
 	-- gopls = {},
-	-- pyright = {},
+pyright = {
+    python = {
+        analysis = {
+            typeCheckingMode = "basic",
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
+        }
+    }
+},
 	-- clangd = {
 	-- 	cmd = { "clangd", "--compile-commands-dir=~/.config/nvim/lua/plugins/lsp/compile_commands" },
 	-- 	filetypes = { "c", "cpp", "objc", "objcpp" },
@@ -112,7 +121,7 @@ M.servers = {
 
 M.on_attach = function(_, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 end
 
 return M

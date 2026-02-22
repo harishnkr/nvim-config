@@ -8,10 +8,7 @@ return { -- LSP Configuration & Plugins
 
 		-- Useful status updates for LSP
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-		{ 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
-
-		-- Additional lua configuration, makes nvim stuff amazing!
-		{ 'folke/neodev.nvim',       opts = {} },
+		{ 'j-hui/fidget.nvim',       opts = {} },
 	},
 
 	config = function(_, _)
@@ -25,7 +22,7 @@ return { -- LSP Configuration & Plugins
 		--  Add any additional override configuration in the following tables. They will be passed to
 		--  the `settings` field of the server config. You must look up that documentation yourself.
 		-- Setup neovim lua configuration
-		require('neodev').setup()
+		require('lazydev').setup()
 
 		-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 
@@ -38,17 +35,17 @@ return { -- LSP Configuration & Plugins
 		local lspconfig = require('lspconfig')
 		mason_lspconfig.setup {
 			ensure_installed = vim.tbl_keys(servers),
-		}
 
-		-- mason_lspconfig.setup_handlers {
-		-- 	function(server_name)
-		-- 		lspconfig[server_name].setup {
-		-- 			capabilities = lsputils.capabilities,
-		-- 			on_attach = lsputils.on_attach,
-		-- 			settings = servers[server_name],
-		-- 		}
-		-- 	end,
-		-- }
+		handlers = {
+			function(server_name)
+				lspconfig[server_name].setup {
+					capabilities = lsputils.capabilities,
+					on_attach = lsputils.setup,
+					settings = servers[server_name],
+				}
+			end,
+		}
+		}
 	end,
 
 }
