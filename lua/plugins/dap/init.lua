@@ -30,8 +30,7 @@ return { {
       "rcarriga/nvim-dap-ui",
     },
     config = function()
-      local path = require("mason-registry").get_package("debugpy"):get_install_path()
-      require("dap-python").setup(path .. "/venv/bin/python")
+      require("dap-python").setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python")
       require("plugins.dap.mappings").dap_python()
     end,
   },
