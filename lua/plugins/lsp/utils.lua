@@ -63,23 +63,23 @@ end
 local dict_file = io.open(vim.fn.stdpath("config") .. "/dictionary", "r")
 local words = {}
 if dict_file then
-    for word in dict_file:lines() do
-        table.insert(words, word)
-    end
-    dict_file:close()
+	for word in dict_file:lines() do
+		table.insert(words, word)
+	end
+	dict_file:close()
 end
 M.servers = {
 	-- ccls
 	-- gopls = {},
-pyright = {
-    python = {
-        analysis = {
-            typeCheckingMode = "basic",
-            autoSearchPaths = true,
-            useLibraryCodeForTypes = true,
-        }
-    }
-},
+	basedpyright = {
+		basedpyright = {
+			analysis = {
+				typeCheckingMode = "basic",
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+			}
+		}
+	},
 	-- clangd = {
 	-- 	cmd = { "clangd", "--compile-commands-dir=~/.config/nvim/lua/plugins/lsp/compile_commands" },
 	-- 	filetypes = { "c", "cpp", "objc", "objcpp" },
