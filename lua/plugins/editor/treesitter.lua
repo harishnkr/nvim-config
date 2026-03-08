@@ -1,12 +1,4 @@
 return {
-  -- Highlight, edit, and navigate code
-  'nvim-treesitter/nvim-treesitter',
-  enabled = true,
-  dependencies = {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-  },
-  build = ':TSUpdate',
-  lazy = false,
   opts = {
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = {
